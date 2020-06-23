@@ -12,8 +12,15 @@ use Illuminate\Support\Facades\Broadcast;
 | used to check if an authenticated user can listen to the channel.
 |
 */
-Broadcast::channel('counter', function ($user) {
-    return [
-        'name' => $user->name,
-    ];
+//Broadcast::channel('chat', function ($message) {
+//    return $message;
+//});
+
+Broadcast::channel('online', function ($user) {
+    if (true) { // Заменить настоящей авторизацией
+        return [
+            'id' => $user->id,
+            'name' => $user->name
+        ];
+    }
 });

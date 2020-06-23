@@ -8,6 +8,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import Vuetify from '../plugins/vuetify';
+// import colors from 'vuetify/es5/util/colors'
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -20,6 +22,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('chat', require('./components/Chat.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,19 +30,15 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// // Enable pusher logging - don't include this in production
+//
 // Pusher.logToConsole = true;
 //
 // var pusher = new Pusher('72a18312bbfe79dfe7d6', {
 //     cluster: 'eu'
 // });
-//
-// var channel = pusher.subscribe('my-channel');
-// channel.bind('my-event', function(data) {
-//     app.messages.push(JSON.stringify(data));
-// });
 
 // Vue application
 const app = new Vue({
+    vuetify: Vuetify,
     el: '#app',
 });

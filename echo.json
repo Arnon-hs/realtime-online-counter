@@ -1,0 +1,18 @@
+{
+	"apps":[
+	{
+  		"name": "laravel-echo-server",
+ 		"script": "laravel-echo-server",
+  		"args": "start"
+	},
+	{
+    "name": "artisan-queue-listen",
+    "script": "artisan",
+    "args": ["queue:work", "--tries=1", "--sleep=1", "--timeout=120"],
+    "exec_interpreter": "php",
+    "exec_mode"  : "fork_mode",
+    "watch": false,
+    "merge_logs": true,
+    "cwd": "/var/www/194-67-78-176.cloudvps.regruhosting.ru/",
+  }]
+}
