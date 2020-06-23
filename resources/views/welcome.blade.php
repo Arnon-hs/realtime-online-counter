@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Real-time counter
+                    Real-time app
                 </div>
                 <div class="links">
                     <a>

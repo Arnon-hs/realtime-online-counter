@@ -5,7 +5,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <p class="lead text-center">Online Now</p>
-                        <h1 class="text-center">{{ this.count }}</h1>
+                        <h1 class="text-center">{{ this.countUsers }}</h1>
                     </div>
                 </div>
             </div>
@@ -17,7 +17,7 @@
     export default {
         data() {
             return {
-                count: 0
+                countUsers: 0
             }
         },
         mounted() {
@@ -26,9 +26,15 @@
         methods: {
             listen() {
                 window.Echo.join('counter')
-                    .here(users => this.count = users.length)
-                    .joining(user => this.count++)
-                    .leaving(user => this.count--);
+                    .here(users => this.countUsers = users.length)
+                    .joining(user => this.countUsers++)
+                    .leaving(user => this.countUsers--);
+                // window.Echo.channel('online')
+                //     .listen('UserOnline', ({countUsers}) => {
+                //         this.countUsers = countUsers;
+                //     });
+                // axios.post('/online', { body: this.countUsers});
+
             }
         }
     }
